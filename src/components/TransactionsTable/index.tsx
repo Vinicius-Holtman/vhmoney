@@ -12,11 +12,11 @@ interface TransactionProps {
 }
 
 export function TransactionsTable() {
-  const [transactions, settransactions] = useState<TransactionProps[]>([])
+  const [transactions, setTransactions] = useState<TransactionProps[]>([])
 
   useEffect(() => {
     api.get('transactions')
-    .then(response => settransactions(response.data.transactions))
+    .then(response => setTransactions(response.data.transactions))
   }, [])
 
   return (
